@@ -34,42 +34,24 @@ int		main(int argc, char **argv)
 	t_deffig default_figures[19];
 	
 	ft_filldefaultfig(default_figures, (int[4]){0, 0, 0, 0}, (int[4]){0, 1, 2, 3}, 0);
-
 	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 3}, (int[4]){0, 0, 0, 0}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 1}, (int[4]){0, 1, 0, 1}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 0, 1}, (int[4]){0, 1, 2, 0}, 0);
-
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 0, 1}, (int[4]){0, 0, 1, 1}, 0);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 0, 0}, (int[4]){0, 0, 1, 2}, 0);
 	ft_filldefaultfig(default_figures, (int[4]){0, 0, 0, 1}, (int[4]){0, 1, 2, 2}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){1, 1, 1, 0}, (int[4]){0, 1, 2, 2}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){1, 1, 1, 0}, (int[4]){0, 1, 2, 0}, 0);
-
+	ft_filldefaultfig(default_figures, (int[4]){1, 1, 0, 1}, (int[4]){0, 1, 2, 2}, 0);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 1}, (int[4]){0, 0, 1, 2}, 0);
 	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 2}, (int[4]){0, 0, 0, 1}, 0);
-
 	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 0}, (int[4]){0, 0, 0, 1}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 0}, (int[4]){1, 1, 1, 0}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 2}, (int[4]){1, 1, 1, 0}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){1, 1, 0, 0}, (int[4]){0, 1, 1, 2}, 0);
-
+	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 0);
+	ft_filldefaultfig(default_figures, (int[4]){2, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 0);
+	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 0}, (int[4]){0, 1, 1, 2}, 0);
 	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 1}, (int[4]){0, 1, 1, 2}, 0);
-
 	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 2}, (int[4]){0, 0, 1, 1}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 2}, (int[4]){1, 1, 0, 0}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 2}, (int[4]){1, 1, 0, 1}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 2}, (int[4]){0, 0, 1, 0}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 0, 1}, (int[4]){0, 1, 2, 1}, 0);
-
-	ft_filldefaultfig(default_figures, (int[4]){1, 1, 1, 0}, (int[4]){0, 1, 2, 1}, 0);
+	ft_filldefaultfig(default_figures, (int[4]){1, 2, 0, 1}, (int[4]){0, 0, 1, 1}, 0);
+	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 0);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 1}, (int[4]){0, 0, 0, 1}, 0);
+	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 0}, (int[4]){0, 1, 1, 2}, 0);
+	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 1}, (int[4]){0, 1, 1, 2}, 0);
 
 	printf("count = %d, x[1] = %d, y[1] = %d, x[2] = %d, y[2] = %d, x[3] = %d, y[3] = %d, x[4] = %d, y[4] = %d", default_figures[0].count, default_figures[0].x[0], default_figures[0].y[0] , default_figures[0].x[1], default_figures[0].y[1]  , default_figures[0].x[2], default_figures[0].y[2]  , default_figures[0].x[3], default_figures[0].y[3]);  
 
