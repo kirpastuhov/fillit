@@ -6,7 +6,7 @@
 /*   By: kpastukh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:43:59 by kpastukh          #+#    #+#             */
-/*   Updated: 2019/10/09 16:03:25 by kpastukh         ###   ########.fr       */
+/*   Updated: 2019/10/10 11:47:27 by kpastukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ void	read_file(char *file, char *str)
 int		main(int argc, char **argv)
 {
 	char	*str;
+	t_figure figures[26];
+	
 
 	str = ft_strnew(1);
 	if (argc != 2)
 		return (0);
 	read_file(argv[1], str);
-	parse(str);
+	parse(str, figures);
 }
 
 		/* call check for valid figure function */

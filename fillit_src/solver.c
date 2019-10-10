@@ -6,13 +6,13 @@
 /*   By: mostrovs <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 10:46:48 by mostrovs          #+#    #+#             */
-/*   Updated: 2019/10/10 10:46:51 by mostrovs         ###   ########.fr       */
+/*   Updated: 2019/10/10 11:47:14 by kpastukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	solve(char **matrix, t_figure *f)
-{
-	//Backtracking
-}
+/* void	solve(char **matrix, t_figure *f) */
+/* { */
+/* 	//Backtracking */
+/* } */

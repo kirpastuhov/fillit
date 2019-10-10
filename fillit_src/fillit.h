@@ -5,6 +5,7 @@
 # include <stdio.h>
 
 # define LEN_FIG 4
+# define FIG_AMT 19
 
 
 typedef struct	s_deffig
@@ -21,6 +22,6 @@ typedef struct s_figure
 	int		y[LEN_FIG];
 }				t_figure;
 
-void	parse(char *s);
+int		parse(char *s, t_figure *figure);
 
 #endif
