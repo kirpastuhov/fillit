@@ -6,7 +6,7 @@
 /*   By: mostrovs <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 10:32:05 by mostrovs          #+#    #+#             */
-/*   Updated: 2019/10/10 10:32:07 by mostrovs         ###   ########.fr       */
+/*   Updated: 2019/10/10 10:49:17 by kpastukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,25 @@ void	parse(char *str)
 	
 	if (!str)
 		return ;
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 0, 0}, (int[4]){0, 1, 2, 3}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 3}, (int[4]){0, 0, 0, 0}, 1);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 0, 1}, (int[4]){0, 0, 1, 1}, 2);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 0, 0}, (int[4]){0, 0, 1, 2}, 3);
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 0, 1}, (int[4]){0, 1, 2, 2}, 4);
-	ft_filldefaultfig(default_figures, (int[4]){1, 1, 0, 1}, (int[4]){0, 1, 2, 2}, 5);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 1}, (int[4]){0, 0, 1, 2}, 6);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 2}, (int[4]){0, 0, 0, 1}, 7);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 0}, (int[4]){0, 0, 0, 1}, 8);
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 9);
-	ft_filldefaultfig(default_figures, (int[4]){2, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 10);
-	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 0}, (int[4]){0, 1, 1, 2}, 11);
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 1}, (int[4]){0, 1, 1, 2}, 12);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 2}, (int[4]){0, 0, 1, 1}, 13);
-	ft_filldefaultfig(default_figures, (int[4]){1, 2, 0, 1}, (int[4]){0, 0, 1, 1}, 14);
-	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 15);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 1}, (int[4]){0, 0, 0, 1}, 16);
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 0}, (int[4]){0, 1, 1, 2}, 17);
-	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 1}, (int[4]){0, 1, 1, 2}, 18);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 0, 0, 0}, (int[LEN_FIG]){0, 1, 2, 3}, 0);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 1, 2, 3}, (int[LEN_FIG]){0, 0, 0, 0}, 1);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 1, 0, 1}, (int[LEN_FIG]){0, 0, 1, 1}, 2);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 1, 0, 0}, (int[LEN_FIG]){0, 0, 1, 2}, 3);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 0, 0, 1}, (int[LEN_FIG]){0, 1, 2, 2}, 4);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){1, 1, 0, 1}, (int[LEN_FIG]){0, 1, 2, 2}, 5);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 1, 1, 1}, (int[LEN_FIG]){0, 0, 1, 2}, 6);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 1, 2, 2}, (int[LEN_FIG]){0, 0, 0, 1}, 7);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 1, 2, 0}, (int[LEN_FIG]){0, 0, 0, 1}, 8);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 0, 1, 2}, (int[LEN_FIG]){0, 1, 1, 1}, 9);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){2, 0, 1, 2}, (int[LEN_FIG]){0, 1, 1, 1}, 10);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){1, 0, 1, 0}, (int[LEN_FIG]){0, 1, 1, 2}, 11);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 0, 1, 1}, (int[LEN_FIG]){0, 1, 1, 2}, 12);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 1, 1, 2}, (int[LEN_FIG]){0, 0, 1, 1}, 13);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){1, 2, 0, 1}, (int[LEN_FIG]){0, 0, 1, 1}, 14);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){1, 0, 1, 2}, (int[LEN_FIG]){0, 1, 1, 1}, 15);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 1, 2, 1}, (int[LEN_FIG]){0, 0, 0, 1}, 16);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){0, 0, 1, 0}, (int[LEN_FIG]){0, 1, 1, 2}, 17);
+	ft_filldefaultfig(default_figures, (int[LEN_FIG]){1, 0, 1, 1}, (int[LEN_FIG]){0, 1, 1, 2}, 18);
 
 	// arr[i].y[] * (LEN_FIG + 1) + arr[i].x[] + start_position
 	for (int i = 0; i < 19; i++)
