@@ -6,6 +6,7 @@
 
 # define LEN_FIG 4
 # define FIG_AMT 19
+# define BLOCK 21
 
 
 typedef struct	s_deffig

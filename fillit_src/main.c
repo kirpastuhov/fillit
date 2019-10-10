@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-void	read_file(char *file, char *str)
+void	read_file(char *file, char **str)
 {
 	int		fd;
 	char	*line;
@@ -20,10 +20,9 @@ void	read_file(char *file, char *str)
 	fd = open(file, O_RDONLY);
 	while (get_next_line(fd, &line) == 1)
 	{
-		str = ft_strjoin(str, ft_strjoin(line, "\n"));
+		*str = ft_strjoin(*str, ft_strjoin(line, "\n"));
 		free(line);
 	}
-	ft_putstr(str);
 	close(fd);
 }
 
@@ -36,7 +35,8 @@ int		main(int argc, char **argv)
 	str = ft_strnew(1);
 	if (argc != 2)
 		return (0);
-	read_file(argv[1], str);
+
+	read_file(argv[1], &str);
 	parse(str, figures);
 }
 
