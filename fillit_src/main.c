@@ -34,26 +34,31 @@ int		main(int argc, char **argv)
 	t_deffig default_figures[19];
 	
 	ft_filldefaultfig(default_figures, (int[4]){0, 0, 0, 0}, (int[4]){0, 1, 2, 3}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 3}, (int[4]){0, 0, 0, 0}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 0, 1}, (int[4]){0, 0, 1, 1}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 0, 0}, (int[4]){0, 0, 1, 2}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 0, 1}, (int[4]){0, 1, 2, 2}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){1, 1, 0, 1}, (int[4]){0, 1, 2, 2}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 1}, (int[4]){0, 0, 1, 2}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 2}, (int[4]){0, 0, 0, 1}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 0}, (int[4]){0, 0, 0, 1}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){2, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 0}, (int[4]){0, 1, 1, 2}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 1}, (int[4]){0, 1, 1, 2}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 2}, (int[4]){0, 0, 1, 1}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){1, 2, 0, 1}, (int[4]){0, 0, 1, 1}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 1}, (int[4]){0, 0, 0, 1}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 0}, (int[4]){0, 1, 1, 2}, 0);
-	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 1}, (int[4]){0, 1, 1, 2}, 0);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 3}, (int[4]){0, 0, 0, 0}, 1);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 0, 1}, (int[4]){0, 0, 1, 1}, 2);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 0, 0}, (int[4]){0, 0, 1, 2}, 3);
+	ft_filldefaultfig(default_figures, (int[4]){0, 0, 0, 1}, (int[4]){0, 1, 2, 2}, 4);
+	ft_filldefaultfig(default_figures, (int[4]){1, 1, 0, 1}, (int[4]){0, 1, 2, 2}, 5);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 1}, (int[4]){0, 0, 1, 2}, 6);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 2}, (int[4]){0, 0, 0, 1}, 7);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 0}, (int[4]){0, 0, 0, 1}, 8);
+	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 9);
+	ft_filldefaultfig(default_figures, (int[4]){2, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 10);
+	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 0}, (int[4]){0, 1, 1, 2}, 11);
+	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 1}, (int[4]){0, 1, 1, 2}, 12);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 1, 2}, (int[4]){0, 0, 1, 1}, 13);
+	ft_filldefaultfig(default_figures, (int[4]){1, 2, 0, 1}, (int[4]){0, 0, 1, 1}, 14);
+	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 2}, (int[4]){0, 1, 1, 1}, 15);
+	ft_filldefaultfig(default_figures, (int[4]){0, 1, 2, 1}, (int[4]){0, 0, 0, 1}, 16);
+	ft_filldefaultfig(default_figures, (int[4]){0, 0, 1, 0}, (int[4]){0, 1, 1, 2}, 17);
+	ft_filldefaultfig(default_figures, (int[4]){1, 0, 1, 1}, (int[4]){0, 1, 1, 2}, 18);
 
-	printf("count = %d, x[1] = %d, y[1] = %d, x[2] = %d, y[2] = %d, x[3] = %d, y[3] = %d, x[4] = %d, y[4] = %d", default_figures[0].count, default_figures[0].x[0], default_figures[0].y[0] , default_figures[0].x[1], default_figures[0].y[1]  , default_figures[0].x[2], default_figures[0].y[2]  , default_figures[0].x[3], default_figures[0].y[3]);  
+	// arr[i].y[] * (LEN_FIG + 1) + arr[i].x[] + start_position
+	for (int i = 0; i < 19; i++)
+		printf("count=%d, x[1]=%d, y[1]=%d, x[2]=%d, y[2]=%d, x[3]=%d, y[3]=%d, x[4]=%d, y[4]=%d\n", 
+			default_figures[i].count, default_figures[i].x[0], default_figures[i].y[0] , default_figures[i].x[1], 
+			default_figures[i].y[1]  , default_figures[i].x[2], default_figures[i].y[2]  , default_figures[i].x[3], 
+			default_figures[i].y[3]);  
 
 	str = ft_strnew(1);
 	if (argc == 1)
@@ -64,6 +69,13 @@ int		main(int argc, char **argv)
 		return (2);
 	while (get_next_line(fd, &line) == 1)
 	{
+		str = ft_strjoin(str, ft_strjoin(line, "\n"));
+		free(line);
+	}
+	ft_putstr(str);
+	if (argc == 2)
+		close(fd);
+
 		/* call check for valid figure function */
 		/* if valid */
 			/* save data to array of figures */
@@ -73,11 +85,5 @@ int		main(int argc, char **argv)
 					/* matrix_size + 1 and backtracking one more time */
 		/* else */
 			/* show error */
-		str = ft_strjoin(str, ft_strjoin(line, "\n"));
-		free(line);
-	}
-	ft_putstr(str);
-	if (argc == 2)
-		close(fd);
 }
 
