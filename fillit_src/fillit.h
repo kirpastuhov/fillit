@@ -7,6 +7,11 @@
 # define LEN_FIG 4
 # define FIG_AMT 19
 # define BLOCK 21
+# define COUNT_BLOCK(x) ((x + 1) / BLOCK)
+# define START_POS(x) (COUNT_BLOCK(x) * BLOCK)
+# define END_POS(x) (START_POS(x) + BLOCK)
+# define IS_END_LINE(x) ((x + 1) % (LEN_FIG + 1) - (x / BLOCK) % (LEN_FIG + 1))
+# define IS_END_BLOCK(x) (x % BLOCK + 1 - BLOCK)
 
 
 typedef struct	s_deffig

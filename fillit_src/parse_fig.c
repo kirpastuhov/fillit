@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-void	ft_filldefaultfig(t_deffig *arr, int *x, int *y, int i)
+static void	ft_filldefaultfig(t_deffig *arr, int *x, int *y, int i)
 {
 	int count = 0;
 
@@ -22,11 +22,11 @@ void	ft_filldefaultfig(t_deffig *arr, int *x, int *y, int i)
 		arr[i].y[count] = y[count];
 		count++;
 	}
-	printf("default figure i=%d: x1=%d, x2=%d, x3=%d, x4=%d, y1=%d, y2=%d, y3=%d, y4=%d\n", i,
-		arr[i].x[0], arr[i].x[1], arr[i].x[2], arr[i].x[3], arr[i].y[0], arr[i].y[1], arr[i].y[2], arr[i].y[3]);
+	//printf("default figure i=%d: x1=%d, x2=%d, x3=%d, x4=%d, y1=%d, y2=%d, y3=%d, y4=%d\n", i, /* temp */
+		//arr[i].x[0], arr[i].x[1], arr[i].x[2], arr[i].x[3], arr[i].y[0], arr[i].y[1], arr[i].y[2], arr[i].y[3]);
 }
 
-void	ft_filldefaultfigs(t_deffig *arr)
+static void	ft_filldefaultfigs(t_deffig *arr)
 {
 	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 0, 0, 0}, (int[LEN_FIG]){0, 1, 2, 3}, 0);
 	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 1, 2, 3}, (int[LEN_FIG]){0, 0, 0, 0}, 1);
@@ -49,7 +49,7 @@ void	ft_filldefaultfigs(t_deffig *arr)
 	ft_filldefaultfig(arr, (int[LEN_FIG]){1, 0, 1, 1}, (int[LEN_FIG]){0, 1, 1, 2}, 18);
 }
 
-int check_fig(char *str, int offset, t_deffig *def)
+static int check_fig(char *str, int offset, t_deffig *def)
 {
 	int	i;
 	int	j;
@@ -62,7 +62,7 @@ int check_fig(char *str, int offset, t_deffig *def)
 		while (i < LEN_FIG)
 		{
 			pos = def[j].y[i] * (LEN_FIG + 1) + def[j].x[i] + offset - def[j].x[0];
-			if (str[pos] != '#')
+			if (pos >= END_POS(offset) || str[pos] != '#')
 				break ;
 			i++;
 		}
@@ -73,7 +73,7 @@ int check_fig(char *str, int offset, t_deffig *def)
 	return (0);
 }
 
-void	ft_fillfigs(t_figure *figures, t_deffig default_figures, int n)
+static void	ft_fillfigs(t_figure *figures, t_deffig default_figures, int n)
 {
 	int	i;
 
@@ -88,7 +88,7 @@ void	ft_fillfigs(t_figure *figures, t_deffig default_figures, int n)
 	}
 }
 
-int	checkch(char *str)
+static int	checkch(char *str)
 {
 	int	i;
 	int count;
@@ -106,22 +106,21 @@ int	checkch(char *str)
 	return (0);
 }
 
-int	parse(char *str, t_figure *figures)
+int			parse(char *str, t_figure *figures)
 {
 	int			i;
-	int			j;
 	int			k;
 	int			res;
 	t_deffig	default_figures[19];
 	
 	if (!str)
-		return (-1);
+		return (0);
 	ft_filldefaultfigs(default_figures);
 	k = 0;
 	i = 0;
 	while (str[i])
 	{
-		if (((i + 1) % (LEN_FIG + 1) - (i / BLOCK) % (LEN_FIG + 1) == 0) || (i % BLOCK == BLOCK - 1))
+		if (!IS_END_LINE(i) || !IS_END_BLOCK(i))
 		{
 			if (str[i] != '\n')
 				return (-1);
@@ -130,27 +129,20 @@ int	parse(char *str, t_figure *figures)
 			return (-1);
 		if (str[i] == '#')
 		{
-			j = 0;
-			while (j <= FIG_AMT)
-			{
-				if ((res = check_fig(str, i, default_figures)))
-					break ;
-				j++;
-			}
+			res = check_fig(str, i, default_figures);
 			if (res == -1)
 				return (-1);
-			if (!checkch(&str[BLOCK * (i / BLOCK)]))
+			if (!checkch(&str[START_POS(i)]))
 				return (-1);
 			ft_fillfigs(figures, default_figures[res], k);
 			k++;
-			printf("fill figure k=%d: deffig=%d, x1=%d, x2=%d, x3=%d, x4=%d, y1=%d, y2=%d, y3=%d, y4=%d\n", k-1, res,
-				figures[k-1].x[0], figures[k-1].x[k-1], figures[k-1].x[2], figures[k-1].x[3],
-				figures[k-1].y[0], figures[k-1].y[1], figures[k-1].y[2], figures[k-1].y[3]);
-			i = BLOCK - i % BLOCK + i; 
+			printf("fill figure k=%d: deffig=%d, x[1]=%d, y[1]=%d, x[2]=%d, y[2]=%d, x[3]=%d, y[3]=%d, x[4]=%d, y[4]=%d\n", k-1, res,
+					figures[k-1].x[0], figures[k-1].y[0], figures[k-1].x[1], figures[k-1].y[1],
+					figures[k-1].x[2], figures[k-1].y[2], figures[k-1].x[3], figures[k-1].y[3]);
+			i = BLOCK - i % BLOCK + i;
 		}
 		else
 			i++;
 	}
-
 	return (1);
 }
