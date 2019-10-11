@@ -15,6 +15,10 @@ void	set_def(char matrix[][LEN_FIG + 1])
 	}
 }
 
+//int		check_move(char matrix[][LEN_FIG + 1], t_figure *f)
+
+//void	print(char matrix[][LEN_FIG + 1])
+
 int		solve(int count, t_figure *f) // Backtracking
 {
 	char	matrix[count][LEN_FIG + 1];
