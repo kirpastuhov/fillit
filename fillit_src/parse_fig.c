@@ -22,9 +22,8 @@ void	ft_filldefaultfig(t_deffig *arr, int *x, int *y, int i)
 		arr[i].y[count] = y[count];
 		count++;
 	}
-		printf("arr: i=%d, x[1]=%d, y[1]=%d, x[2]=%d, y[2]=%d, x[3]=%d, y[3]=%d, x[4]=%d, y[4]=%d\n", i,
-			arr[i].x[0], arr[i].y[0], arr[i].x[1], arr[i].y[1],
-			arr[i].x[2], arr[i].y[2], arr[i].x[3], arr[i].y[3]);
+	printf("default figure i=%d: x1=%d, x2=%d, x3=%d, x4=%d, y1=%d, y2=%d, y3=%d, y4=%d\n", i,
+		arr[i].x[0], arr[i].x[1], arr[i].x[2], arr[i].x[3], arr[i].y[0], arr[i].y[1], arr[i].y[2], arr[i].y[3]);
 }
 
 void	ft_filldefaultfigs(t_deffig *arr)
@@ -141,15 +140,12 @@ int	parse(char *str, t_figure *figures)
 			if (res == -1)
 				return (-1);
 			if (!checkch(&str[BLOCK * (i / BLOCK)]))
-			{
-				printf("if (!checkch(&str[BLOCK * (i / BLOCK)]))\n");
 				return (-1);
-			}
 			ft_fillfigs(figures, default_figures[res], k);
 			k++;
-			printf("ft_fillfigs: k=%d, res=%d, x[1]=%d, y[1]=%d, x[2]=%d, y[2]=%d, x[3]=%d, y[3]=%d, x[4]=%d, y[4]=%d\n", k-1, res,
-					figures[k-1].x[0], figures[k-1].y[0], figures[k-1].x[1], figures[k-1].y[1],
-					figures[k-1].x[2], figures[k-1].y[2], figures[k-1].x[3], figures[k-1].y[3]);
+			printf("fill figure k=%d: deffig=%d, x1=%d, x2=%d, x3=%d, x4=%d, y1=%d, y2=%d, y3=%d, y4=%d\n", k-1, res,
+				figures[k-1].x[0], figures[k-1].x[k-1], figures[k-1].x[2], figures[k-1].x[3],
+				figures[k-1].y[0], figures[k-1].y[1], figures[k-1].y[2], figures[k-1].y[3]);
 			i = BLOCK - i % BLOCK + i; 
 		}
 		else

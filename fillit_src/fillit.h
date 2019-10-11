@@ -24,5 +24,6 @@ typedef struct s_figure
 }				t_figure;
 
 int		parse(char *s, t_figure *figure);
+int		solve(int count, t_figure *f);
 
 #endif

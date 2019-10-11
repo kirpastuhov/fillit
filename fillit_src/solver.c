@@ -1,18 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   solver.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mostrovs <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 10:46:48 by mostrovs          #+#    #+#             */
-/*   Updated: 2019/10/10 11:47:14 by kpastukh         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fillit.h"
 
-/* void	solve(char **matrix, t_figure *f) */
-/* { */
-/* 	//Backtracking */
-/* } */
+void	set_def(char matrix[][LEN_FIG + 1])
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (matrix[i][j])
+	{
+		matrix[i][j] = '.';
+		i++;
+		j++;
+	}
+}
+
+int		solve(int count, t_figure *f) // Backtracking
+{
+	char	matrix[count][LEN_FIG + 1];
+
+	if (!f)
+		return (0);
+	set_def(matrix);
+	return (1);
+}

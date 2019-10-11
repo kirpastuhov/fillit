@@ -26,9 +26,20 @@ void	read_file(char *file, char **str)
 	close(fd);
 }
 
+int		get_count(t_figure *figures)
+{
+	int	i;
+
+	i = 0;
+	while (figures[i].name)
+		i++;
+	return (i);
+}
+
 int		main(int argc, char **argv)
 {
 	char	*str;
+	int		count;
 	t_figure figures[26];
 	
 
@@ -37,7 +48,12 @@ int		main(int argc, char **argv)
 		return (0);
 
 	read_file(argv[1], &str);
+	printf("%s\n", str);
 	parse(str, figures);
+	count = get_count(figures);
+	printf("count of t_figure = %d\n", count);
+	solve(count, figures);
+	return (0);
 }
 
 		/* call check for valid figure function */
