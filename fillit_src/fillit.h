@@ -28,6 +28,12 @@ typedef struct s_figure
 	int		y[LEN_FIG];
 }				t_figure;
 
+typedef struct	s_point
+{
+	int		x;
+	int		y;
+}				t_point;
+
 int		parse(char *s, t_figure *figure);
 int		solve(int count, t_figure *f);
 
