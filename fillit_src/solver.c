@@ -30,8 +30,8 @@ int		ft_find_smallest_grid(int count)
 {
 	int n;
 
-	n = LEN_FIG;
-	while (count * LEN_FIG >= n * n)
+	n = 2;
+	while (count * LEN_FIG > n * n)
 		n++;
 	return (n);
 }
