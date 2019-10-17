@@ -36,5 +36,7 @@ typedef struct	s_point
 
 int		parse(char *s, t_figure *figure);
 int		solve(int count, t_figure *f);
+int		check_file(char *str, t_deffig *def);
+int     check_find_fig(const char *str, int offset, t_deffig *def);
 
 #endif

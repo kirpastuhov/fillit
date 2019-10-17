@@ -6,140 +6,83 @@
 /*   By: mostrovs <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 10:32:05 by mostrovs          #+#    #+#             */
-/*   Updated: 2019/10/10 11:53:25 by kpastukh         ###   ########.fr       */
+/*   Updated: 2019/10/16 11:53:25 by mostrovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	ft_filldefaultfig(t_deffig *arr, int *x, int *y, int i)
+static void	ft_filldeffig(t_deffig *f, const int *x, const int *y, int p)
 {
-	int count = 0;
+	int i;
 
-	while (count < LEN_FIG)
+    i = -1;
+	while (++i < LEN_FIG)
 	{
-		arr[i].x[count] = x[count];
-		arr[i].y[count] = y[count];
-		count++;
+		f[p].x[i] = x[i];
+		f[p].y[i] = y[i];
 	}
-	//printf("default figure i=%d: x1=%d, x2=%d, x3=%d, x4=%d, y1=%d, y2=%d, y3=%d, y4=%d\n", i, /* temp */
-		//arr[i].x[0], arr[i].x[1], arr[i].x[2], arr[i].x[3], arr[i].y[0], arr[i].y[1], arr[i].y[2], arr[i].y[3]);
 }
 
-static void	ft_filldefaultfigs(t_deffig *arr)
+static void	ft_filldeffigs(t_deffig *f)
 {
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 0, 0, 0}, (int[LEN_FIG]){0, 1, 2, 3}, 0);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 1, 2, 3}, (int[LEN_FIG]){0, 0, 0, 0}, 1);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 1, 0, 1}, (int[LEN_FIG]){0, 0, 1, 1}, 2);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 1, 0, 0}, (int[LEN_FIG]){0, 0, 1, 2}, 3);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 0, 0, 1}, (int[LEN_FIG]){0, 1, 2, 2}, 4);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){1, 1, 0, 1}, (int[LEN_FIG]){0, 1, 2, 2}, 5);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 1, 1, 1}, (int[LEN_FIG]){0, 0, 1, 2}, 6);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 1, 2, 2}, (int[LEN_FIG]){0, 0, 0, 1}, 7);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 1, 2, 0}, (int[LEN_FIG]){0, 0, 0, 1}, 8);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 0, 1, 2}, (int[LEN_FIG]){0, 1, 1, 1}, 9);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){2, 0, 1, 2}, (int[LEN_FIG]){0, 1, 1, 1}, 10);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){1, 0, 1, 0}, (int[LEN_FIG]){0, 1, 1, 2}, 11);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 0, 1, 1}, (int[LEN_FIG]){0, 1, 1, 2}, 12);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 1, 1, 2}, (int[LEN_FIG]){0, 0, 1, 1}, 13);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){1, 2, 0, 1}, (int[LEN_FIG]){0, 0, 1, 1}, 14);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){1, 0, 1, 2}, (int[LEN_FIG]){0, 1, 1, 1}, 15);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 1, 2, 1}, (int[LEN_FIG]){0, 0, 0, 1}, 16);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){0, 0, 1, 0}, (int[LEN_FIG]){0, 1, 1, 2}, 17);
-	ft_filldefaultfig(arr, (int[LEN_FIG]){1, 0, 1, 1}, (int[LEN_FIG]){0, 1, 1, 2}, 18);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 0, 0, 0}, (int[LEN_FIG]){0, 1, 2, 3}, 0);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 1, 2, 3}, (int[LEN_FIG]){0, 0, 0, 0}, 1);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 1, 0, 1}, (int[LEN_FIG]){0, 0, 1, 1}, 2);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 1, 0, 0}, (int[LEN_FIG]){0, 0, 1, 2}, 3);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 0, 0, 1}, (int[LEN_FIG]){0, 1, 2, 2}, 4);
+    ft_filldeffig(f, (int[LEN_FIG]){1, 1, 0, 1}, (int[LEN_FIG]){0, 1, 2, 2}, 5);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 1, 1, 1}, (int[LEN_FIG]){0, 0, 1, 2}, 6);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 1, 2, 2}, (int[LEN_FIG]){0, 0, 0, 1}, 7);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 1, 2, 0}, (int[LEN_FIG]){0, 0, 0, 1}, 8);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 0, 1, 2}, (int[LEN_FIG]){0, 1, 1, 1}, 9);
+    ft_filldeffig(f, (int[LEN_FIG]){2, 0, 1, 2}, (int[LEN_FIG]){0, 1, 1, 1}, 10);
+    ft_filldeffig(f, (int[LEN_FIG]){1, 0, 1, 0}, (int[LEN_FIG]){0, 1, 1, 2}, 11);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 0, 1, 1}, (int[LEN_FIG]){0, 1, 1, 2}, 12);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 1, 1, 2}, (int[LEN_FIG]){0, 0, 1, 1}, 13);
+    ft_filldeffig(f, (int[LEN_FIG]){1, 2, 0, 1}, (int[LEN_FIG]){0, 0, 1, 1}, 14);
+    ft_filldeffig(f, (int[LEN_FIG]){1, 0, 1, 2}, (int[LEN_FIG]){0, 1, 1, 1}, 15);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 1, 2, 1}, (int[LEN_FIG]){0, 0, 0, 1}, 16);
+    ft_filldeffig(f, (int[LEN_FIG]){0, 0, 1, 0}, (int[LEN_FIG]){0, 1, 1, 2}, 17);
+    ft_filldeffig(f, (int[LEN_FIG]){1, 0, 1, 1}, (int[LEN_FIG]){0, 1, 1, 2}, 18);
 }
 
-static int check_fig(char *str, int offset, t_deffig *def)
-{
-	int	i;
-	int	j;
-	int	pos;
-
-	j = 0;
-	while (j < FIG_AMT)
-	{
-		i = 1;
-		while (i < LEN_FIG)
-		{
-			pos = def[j].y[i] * (LEN_FIG + 1) + def[j].x[i] + offset - def[j].x[0];
-			if (pos >= END_POS(offset) || str[pos] != '#')
-				break ;
-			i++;
-		}
-		if (i == LEN_FIG)
-			return (j);
-		j++;
-	}
-	return (0);
-}
-
-static void	ft_fillfigs(t_figure *figures, t_deffig default_figures, int n)
+static void	ft_fillfigs(t_figure *f, t_deffig df, int p)
 {
 	int	i;
 
-	i = 0;
-	figures[n].name = n + '0';
-	figures[n].offset = default_figures.x[0];
-	while (i < LEN_FIG)
+	f[p].name = p + 'A';
+	f[p].offset = df.x[0];
+    i = -1;
+	while (++i < LEN_FIG)
 	{
-		figures[n].x[i] = default_figures.x[i];
-		figures[n].y[i] = default_figures.y[i];
-		i++;
+		f[p].x[i] = df.x[i];
+		f[p].y[i] = df.y[i];
 	}
 }
 
-static int	checkch(char *str)
-{
-	int	i;
-	int count;
-
-	i = 0;
-	count = 0;
-	while (str[i] && i < BLOCK)
-	{
-		if (str[i] == '#')
-			count++;
-		i++;
-	}
-	if (count == 4)
-		return (count);
-	return (0);
-}
-
-int			parse(char *str, t_figure *figures)
+int			parse(char *str, t_figure *f)
 {
 	int			i;
 	int			k;
 	int			res;
-	t_deffig	default_figures[19];
+	t_deffig	df[19];
 	
 	if (!str)
-		return (0);
-	ft_filldefaultfigs(default_figures);
-	k = 0;
-	i = 0;
+        return (0);
+    ft_filldeffigs(df);
+    if (!check_file(str, df))
+        return (0);
+    i = 0;
+    k = -1;
 	while (str[i])
 	{
-		if (!IS_END_LINE(i) || !IS_END_BLOCK(i))
-		{
-			if (str[i] != '\n')
-				return (-1);
-		}
-		else if (str[i] != '#' && str[i] != '.')
-			return (-1);
 		if (str[i] == '#')
 		{
-			res = check_fig(str, i, default_figures);
-			if (res == -1)
-				return (-1);
-			if (!checkch(&str[START_POS(i)]))
-				return (-1);
-			ft_fillfigs(figures, default_figures[res], k);
-			k++;
-			printf("fill figure k=%d: deffig=%d, x[1]=%d, y[1]=%d, x[2]=%d, y[2]=%d, x[3]=%d, y[3]=%d, x[4]=%d, y[4]=%d\n", k-1, res,
-					figures[k-1].x[0], figures[k-1].y[0], figures[k-1].x[1], figures[k-1].y[1],
-					figures[k-1].x[2], figures[k-1].y[2], figures[k-1].x[3], figures[k-1].y[3]);
+		    res = check_find_fig(str, i, df);
+			ft_fillfigs(f, df[res], ++k);
 			i = BLOCK - i % BLOCK + i;
+            //printf("fill k = %d: deffig = %d, name = %c, (%d,%d) (%d,%d) (%d,%d) (%d,%d)\n", k-1, res, f[k-1].name, f[k-1].x[0], f[k-1].y[0], f[k-1].x[1], f[k-1].y[1], f[k-1].x[2], f[k-1].y[2], f[k-1].x[3], f[k-1].y[3]);
 		}
 		else
 			i++;

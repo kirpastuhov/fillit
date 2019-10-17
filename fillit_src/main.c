@@ -26,7 +26,6 @@ static char	*read_file(char *file)
 		free(line);
 	}
 	close(fd);
-	printf("%s\n", str); /* temp */
 	return (str);
 }
 
