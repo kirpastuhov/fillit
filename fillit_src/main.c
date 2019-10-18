@@ -6,7 +6,7 @@
 /*   By: kpastukh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:43:59 by kpastukh          #+#    #+#             */
-/*   Updated: 2019/10/14 16:15:45 by kpastukh         ###   ########.fr       */
+/*   Updated: 2019/10/18 16:10:38 by kpastukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,19 @@ static int	get_countfig(t_figure *figures)
 
 static int	error(void)
 {
-	write(1, "error\n", 6);
+	write(1, "error\n", 7);
 	return (0);
+}
+
+int			solve(int count, t_figure *f)
+{
+	int len;
+
+	if (!f)
+		return (0);
+	len = ft_find_smallest_grid(count);
+	set_matrix(len, f);
+	return (1);
 }
 
 int			main(int argc, char **argv)
@@ -50,14 +61,13 @@ int			main(int argc, char **argv)
 	char		*str;
 	int			count;
 	t_figure	figures[26];
-	
+
 	if (argc != 2)
 		return (error());
 	str = read_file(argv[1]);
 	if (!*str || !parse(str, figures))
 		return (error());
 	count = get_countfig(figures);
-	//printf("count of t_figure = %d\n", count); /* temp */
 	solve(count, figures);
 	return (0);
 }

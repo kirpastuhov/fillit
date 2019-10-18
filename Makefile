@@ -10,7 +10,7 @@ all: $(NAME)
 	
 $(NAME): $(SRCS) $(HEADER)
 	make -C $(LIBFT)
-	gcc $(FLAGS) -g -o $(NAME) $(SRCS) -I $(HEADER) -L. libft/libft.a
+	gcc $(FLAGS) -o $(NAME) $(SRCS) -I $(HEADER) -L. libft/libft.a
 
 clean: 
 	/bin/rm -f $(OBJS)

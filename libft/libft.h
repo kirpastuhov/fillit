@@ -6,7 +6,7 @@
 /*   By: kpastukh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 20:42:13 by kpastukh          #+#    #+#             */
-/*   Updated: 2019/10/08 17:19:33 by kpastukh         ###   ########.fr       */
+/*   Updated: 2019/10/18 16:11:23 by kpastukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,5 @@ void			ft_lstrev(t_list **begin_list);
 void			ft_strrev(char *str);
 
 int				get_next_line(const int fd, char **line);
-
 
 #endif
