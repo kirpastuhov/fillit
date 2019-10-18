@@ -6,20 +6,37 @@
 /*   By: mostrovs <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 10:32:05 by mostrovs          #+#    #+#             */
-/*   Updated: 2019/10/16 11:53:25 by mostrovs         ###   ########.fr       */
+/*   Updated: 2019/10/17 18:09:25 by mostrovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int  check_nl(const char *s, int i)
+static int  check_nl(const char *str)
 {
-    if (!IS_END_LINE(i) || !IS_END_BLOCK(i))
+    int i;
+
+    i = 0;
+    while (str[i] && i < BLOCK - 1)
     {
-        if (s[i] != '\n') {
-            printf("check_nl %d\n", i);
-            return (0);
+        if (!IS_END_LINE(i))
+        {
+            if (str[i] != '\n')
+                return (0);
         }
+        else
+        {
+            if (str[i] == '\n')
+                return (0);
+        }
+        i++;
+    }
+    if (!IS_END_BLOCK(i))
+    {
+        if (str[BLOCK] && str[i] != '\n')
+            return (0);
+        if (!str[BLOCK] && str[i] == '\n')
+            return (0);
     }
     return (1);
 }
@@ -43,7 +60,7 @@ static int	check_cells(const char *str)
     }
     if (count_hash == 4 && count_point == 12)
         return (1);
-    printf("check_cells %d-%d\n", count_hash, count_point);
+    //printf("check_cells %d-%d\n", count_hash, count_point);
     return (0);
 }
 
@@ -68,7 +85,6 @@ int     check_find_fig(const char *str, int offset, t_deffig *def)
             return (j);
         j++;
     }
-    printf("check_fig\n");
     return (-1);
 }
 
@@ -79,10 +95,15 @@ int		check_file(char *str, t_deffig *def)
 	i = 0;
     while (str[i])
     {
-        if (!check_nl(str, i))
+        if (!check_nl(&str[i]))
             return (0);
-        if (!check_cells(&str[START_POS(i)]))
+        if (!check_cells(&str[i]))
             return (0);
+        i += BLOCK;
+    }
+	i = 0;
+    while (str[i])
+    {
         if (str[i] == '#')
         {
             if (check_find_fig(str, i, def) == -1)

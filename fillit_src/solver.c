@@ -6,13 +6,13 @@
 /*   By: mostrovs <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 10:32:05 by mostrovs          #+#    #+#             */
-/*   Updated: 2019/10/15 16:20:22 by kpastukh         ###   ########.fr       */
+/*   Updated: 2019/10/17 16:20:05 by mostrovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	set_def(int count, char matrix[count][count])
+static void	set_def(int count, char matrix[count][count])
 {
 	int		i;
 	int		j;
@@ -26,7 +26,7 @@ void	set_def(int count, char matrix[count][count])
 	}
 }
 
-int		ft_find_smallest_grid(int count)
+static int	ft_find_smallest_grid(int count)
 {
 	int n;
 
@@ -36,7 +36,7 @@ int		ft_find_smallest_grid(int count)
 	return (n);
 }
 
-void	print(int count, char matrix[count][count])
+static void	print(int count, char matrix[count][count])
 {
 	int		i;
 	int		j;
@@ -53,21 +53,21 @@ void	print(int count, char matrix[count][count])
 	ft_putendl(" ");
 }
 
-void	set_fig(int len, t_figure *f, char matrix[len][len])
+static void	set_fig(int len, t_figure *f, char matrix[len][len])
 {
     int i = -1;
     while (++i < LEN_FIG)
         matrix[(*f).y[i]][(*f).x[i]] = (*f).name;
 }
 
-void		clean_fig(int len, t_figure *f, char matrix[len][len])
+static void	clean_fig(int len, t_figure *f, char matrix[len][len])
 {
     int i = -1;
     while (++i < LEN_FIG)
         matrix[(*f).y[i]][(*f).x[i]] = '.';
 }
 
-int		move_fig(t_figure *f, int len, t_point p, char matrix[len][len])
+static int	move_fig(t_figure *f, int len, t_point p, char matrix[len][len])
 {
 	int i;
 
@@ -90,7 +90,7 @@ int		move_fig(t_figure *f, int len, t_point p, char matrix[len][len])
 	return (1);
 }
 
-int     cmp(int *val, int count)
+static int  cmp(int *val, int count)
 {
     int i;
 
@@ -103,7 +103,7 @@ int     cmp(int *val, int count)
     return (1);
 }
 
-void    reset_fig(t_figure *f)
+static void reset_fig(t_figure *f)
 {
     int i;
     int count;
@@ -122,7 +122,7 @@ void    reset_fig(t_figure *f)
         (*f).y[i] = (*f).y[i] - count + 1;
 }
 
-int		backtrack(int len, t_figure *f, char matrix[len][len])
+static int  backtrack(int len, t_figure *f, char matrix[len][len])
 {
     t_point start_pos;
 
@@ -146,11 +146,11 @@ int		backtrack(int len, t_figure *f, char matrix[len][len])
 	return (0);
 }
 
-void		set_matrix(int len, t_figure *f)
+static void set_matrix(int len, t_figure *f)
 {
 	char matrix[len][len];
 
-	printf("new len = %d\n", len);
+	//printf("new len = %d\n", len);
 	set_def(len, matrix);
 	if (!backtrack(len, f, matrix))
 		set_matrix(len + 1, f);

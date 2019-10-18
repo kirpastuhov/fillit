@@ -57,7 +57,7 @@ int			main(int argc, char **argv)
 	if (!*str || !parse(str, figures))
 		return (error());
 	count = get_countfig(figures);
-	printf("count of t_figure = %d\n", count); /* temp */
+	//printf("count of t_figure = %d\n", count); /* temp */
 	solve(count, figures);
 	return (0);
 }
