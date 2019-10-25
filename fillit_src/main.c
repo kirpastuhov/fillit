@@ -6,7 +6,7 @@
 /*   By: kpastukh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:43:59 by kpastukh          #+#    #+#             */
-/*   Updated: 2019/10/21 15:40:09 by kpastukh         ###   ########.fr       */
+/*   Updated: 2019/10/25 12:40:38 by kpastukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ static int	get_countfig(t_figure *figures)
 	int	i;
 
 	i = 0;
-	while (figures[i].name)
+	while (IS_FIG(figures[i].name))
 		i++;
 	return (i);
 }
 
 static int	error(void)
 {
-	write(1, "error\n", 6);
+	ft_putstr("error\n");
 	return (0);
 }
 

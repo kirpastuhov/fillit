@@ -6,7 +6,7 @@
 /*   By: kpastukh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 15:32:50 by kpastukh          #+#    #+#             */
-/*   Updated: 2019/10/18 16:04:21 by kpastukh         ###   ########.fr       */
+/*   Updated: 2019/10/25 12:42:01 by kpastukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define END_POS(x) (START_POS(x) + BLOCK)
 # define IS_END_LINE(x) ((x + 1) % (LEN_FIG + 1) - (x / BLOCK) % (LEN_FIG + 1))
 # define IS_END_BLOCK(x) (x % BLOCK + 1 - BLOCK)
+# define IS_FIG(x) (x >= 'A' && x <= 'Z')
 
 typedef struct	s_deffig
 {

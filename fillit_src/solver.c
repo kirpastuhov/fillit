@@ -6,7 +6,7 @@
 /*   By: mostrovs <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 10:32:05 by mostrovs          #+#    #+#             */
-/*   Updated: 2019/10/18 16:06:52 by kpastukh         ###   ########.fr       */
+/*   Updated: 2019/10/25 12:40:17 by kpastukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static int	backtrack(int len, t_figure *f, char matrix[len][len])
 			if (move_fig(f, len, (t_point) {start_pos.x, start_pos.y}, matrix))
 			{
 				set_fig(len, f, matrix);
-				if (!f[1].name || backtrack(len, f + 1, matrix))
+				if (!IS_FIG(f[1].name) || backtrack(len, f + 1, matrix))
 					return (1);
 				clean_fig(len, f, matrix);
 				reset_fig(f);
