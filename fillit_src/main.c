@@ -6,7 +6,7 @@
 /*   By: kpastukh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:43:59 by kpastukh          #+#    #+#             */
-/*   Updated: 2019/10/25 12:40:38 by kpastukh         ###   ########.fr       */
+/*   Updated: 2019/10/25 14:13:11 by kpastukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,15 @@ int			main(int argc, char **argv)
 	int			count;
 	t_figure	figures[26];
 
-	if (argc != 2)
-		return (error());
-	str = read_file(argv[1]);
-	if (!*str || !parse(str, figures))
-		return (error());
-	count = get_countfig(figures);
-	solve(count, figures);
-	return (0);
+	if (argc == 2)
+	{
+		str = read_file(argv[1]);
+		if (!*str || !parse(str, figures))
+			return (error());
+		count = get_countfig(figures);
+		solve(count, figures);
+		return (0);
+	}
+	else
+		ft_putstr("usage: ./fillit valid_sample.fillit\n");
 }
